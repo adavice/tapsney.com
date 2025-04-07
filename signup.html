@@ -29,6 +29,7 @@
     <!-- font -->
 
     <!-- //font -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/login.js"></script>
@@ -403,6 +404,13 @@
                                 back to you.</label><label class="check" for="checkBox3"><input id="checkBox3"
                                     type="checkbox" required="required"> I agree to a recurring monthly transaction of
                                 13.95 EUR following a 3 day trial</label>
+                        </div>
+                        <div style="display: block; flex-flow: row;">
+                          <div
+                            class="cf-turnstile"
+                            data-sitekey=""
+                            data-size="flexible" theme="dark"
+                          ></div>
                         </div>
                         <input class="button" type="submit" value="Continue">
                     </form>
