@@ -329,7 +329,7 @@ th {
 }
 .glyphicon-th:before {
   content: "\e011";
-  color: rgba(9, 242, 234, 1);
+  
 }
 .glyphicon-th-list:before {
   content: "\e012";
@@ -360,7 +360,7 @@ th {
 }
 .glyphicon-home:before {
   content: "\e021";
-  color: rgba(9, 242, 234, 1);
+  
 }
 .glyphicon-file:before {
   content: "\e022";
@@ -400,7 +400,7 @@ th {
 }
 .glyphicon-flag:before {
   content: "\e034";
-  color: rgba(9, 242, 234, 1);
+  
 }
 .glyphicon-headphones:before {
   content: "\e035";
@@ -692,7 +692,7 @@ th {
 }
 .glyphicon-globe:before {
   content: "\e135";
-  color: rgba(9, 242, 234, 1);
+  
 }
 .glyphicon-wrench:before {
   content: "\e136";
@@ -771,7 +771,7 @@ th {
 }
 .glyphicon-flash:before {
   content: "\e162";
-  color: rgba(9, 242, 234, 1);
+  
 }
 .glyphicon-log-out:before {
   content: "\e163";
@@ -907,7 +907,7 @@ th {
 }
 .glyphicon-equalizer:before {
   content: "\e210";
-  color: rgba(9, 242, 234, 1);
+  
 }
 .glyphicon-king:before {
   content: "\e211";
@@ -923,7 +923,6 @@ th {
 }
 .glyphicon-knight:before {
   content: "\e215";
-  color: rgba(9, 242, 234, 1);
 }
 .glyphicon-baby-formula:before {
   content: "\e216";
