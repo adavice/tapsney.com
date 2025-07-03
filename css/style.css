@@ -583,6 +583,8 @@ form .row {
 }
 
 .form-control {
+	position: relative;
+    z-index: 1;
 	height: 40px;
 	float: left;
 	margin: 0 10px 25px 0;
