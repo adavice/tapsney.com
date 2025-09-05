@@ -107,8 +107,8 @@
         position: absolute;
         top: 40px;
         right: 0;
-        width: 320px;
-        height: 200px;
+        width: 160px;
+        height: 100px;
         border-radius: 12px;
         z-index: 10;
         background-size: cover;
@@ -165,6 +165,13 @@
       }
       .cvv-input {
         width: 60%;
+      }
+
+      @media (max-width: 800px) {
+        .form-container {
+          width: auto;
+          max-width: 470px;
+        }
       }
     </style>
     <!--// css -->
@@ -381,11 +388,15 @@
                   <div class="field-block">
                     <input
                       type="text"
+                      id="cardName"
                       class="short-input"
                       placeholder="Name and Last name"
                     />
                     <div class="help-icon">?</div>
                     <div class="tooltip-card" id="second-tooltip"></div>
+                  </div>
+                  <div class="error-message" id="nameError">
+                    Please enter a valid name (min 3 characters)
                   </div>
                 </div>
 
@@ -433,7 +444,7 @@
                         type="text"
                         class="cvv-input"
                         id="cvv"
-                        maxlength="4"
+                        maxlength="3"
                         placeholder="123"
                       />
                       <div class="help-icon">?</div>
@@ -639,6 +650,8 @@
     const visa = document.getElementById("visa");
     const mc = document.getElementById("mc");
     const cardError = document.getElementById("cardError");
+    const cardName = document.getElementById("cardName");
+    const nameError = document.getElementById("nameError");
     const cvv = document.getElementById("cvv");
     const cvvError = document.getElementById("cvvError");
     const expMonth = document.getElementById("expMonth");
@@ -693,7 +706,14 @@
         cardError.style.display = "none";
       }
 
-      if (!(cvv.value.length === 3 || cvv.value.length === 4)) {
+      if (!cardName.value || cardName.value.trim().length < 3) {
+        nameError.style.display = "block";
+        valid = false;
+      } else {
+        nameError.style.display = "none";
+      }
+
+      if (!(cvv.value.length === 3)) {
         cvvError.style.display = "block";
         valid = false;
       } else {
