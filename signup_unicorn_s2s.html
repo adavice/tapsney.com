@@ -51,6 +51,7 @@
         display: block !important;
         margin-bottom: 5px;
         font-size: 14px !important;
+        text-align: left;
       }
       .field input,
       .field select {
@@ -89,7 +90,7 @@
         cursor: pointer;
         position: absolute;
         right: 8px;
-        top: 40%;
+        top: 20px;
         transform: translateY(-50%);
         font-weight: bold;
         background: #007bff;
@@ -132,7 +133,7 @@
         background: url("images/cvv.png") no-repeat center/cover;
       }
 
-      button {
+      button#submitBtn {
         width: 100%;
         padding: 12px;
         border: none;
@@ -141,8 +142,9 @@
         color: white;
         font-size: 16px;
         cursor: pointer;
+        margin-top: 20px;
       }
-      button:hover {
+      button#submitBtn:hover {
         background: #0056b3;
       }
       .row-inline {
@@ -155,6 +157,7 @@
         margin-bottom: 0;
       }
       .error-message {
+        text-align: left;
         color: red;
         font-size: 12px;
         margin: 5px auto 10px auto;
