@@ -5573,3 +5573,8 @@ img.img-responsive.zoom-img {
 .new_games a.button {
     width: 250px;
 }
+
+.wthree_blog_left .agileits_reply iframe {
+    width: 100% !important;
+    height: 1300px !important;
+}
