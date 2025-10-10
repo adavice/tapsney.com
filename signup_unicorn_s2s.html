@@ -64,6 +64,7 @@
       }
       .field-block {
         position: relative;
+        width: 100%;
       }
       .card-number-field {
         display: flex;
@@ -174,6 +175,10 @@
         .form-container {
           width: auto;
           max-width: 470px;
+        }
+
+        .card-icons-block {
+          flex-direction: column;
         }
       }
     </style>
@@ -362,12 +367,12 @@
                   <label>Card Number</label>
                   <div class="card-number-field">
                     <div class="field-block">
-                      <input 
-                        type="text" 
-                        name="cardNumber" 
-                        id="cardNumber" 
-                        maxlength="19" 
-                        placeholder="1234 5678 9012 3456" 
+                      <input
+                        type="text"
+                        name="cardNumber"
+                        id="cardNumber"
+                        maxlength="19"
+                        placeholder="1234 5678 9012 3456"
                       />
                       <div class="help-icon">?</div>
                       <div class="tooltip-card" id="first-tooltip"></div>
@@ -390,12 +395,12 @@
                 <div class="field">
                   <label>Name on Card</label>
                   <div class="field-block">
-                    <input 
-                      type="text" 
-                      id="cardName" 
-                      name="cardName" 
-                      class="short-input" 
-                      placeholder="Name and Last name" 
+                    <input
+                      type="text"
+                      id="cardName"
+                      name="cardName"
+                      class="short-input"
+                      placeholder="Name and Last name"
                     />
                     <div class="help-icon">?</div>
                     <div class="tooltip-card" id="second-tooltip"></div>
@@ -445,13 +450,13 @@
                   <div class="field">
                     <label>CVV</label>
                     <div class="field-block">
-                      <input 
-                        type="text" 
-                        class="cvv-input" 
-                        name="cvv" 
-                        id="cvv" 
-                        maxlength="3" 
-                        placeholder="123" 
+                      <input
+                        type="text"
+                        class="cvv-input"
+                        name="cvv"
+                        id="cvv"
+                        maxlength="3"
+                        placeholder="123"
                       />
                       <div class="help-icon">?</div>
                       <div class="tooltip-card" id="third-tooltip"></div>
@@ -693,68 +698,75 @@
       }
     });
 
-  //   document.getElementById("submitBtn").addEventListener("click", (e) => {
-  //     e.preventDefault();
-  //     let valid = true;
-  //     let number = cardNumber.value.replace(/\s/g, "");
+    cvv.addEventListener("input", () => {
+      let value = cvv.value.replace(/\D/g, "").substring(0, 3);
+      cvv.value = value;
+    });
 
-  //     /*if (!luhnCheck(number)) {
-  //       cardError.style.display = "block";
-  //       valid = false;
-  //     } else {
-  //       cardError.style.display = "none";
-  //     }*/
+    //   document.getElementById("submitBtn").addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     let valid = true;
+    //     let number = cardNumber.value.replace(/\s/g, "");
 
-  //     if (number.length !== 16) {
-  //       cardError.style.display = "block";
-  //       valid = false;
-  //     } else {
-  //       cardError.style.display = "none";
-  //     }
+    //     /*if (!luhnCheck(number)) {
+    //       cardError.style.display = "block";
+    //       valid = false;
+    //     } else {
+    //       cardError.style.display = "none";
+    //     }*/
 
-  //     if (!cardName.value || cardName.value.trim().length < 3) {
-  //       nameError.style.display = "block";
-  //       valid = false;
-  //     } else {
-  //       nameError.style.display = "none";
-  //     }
+    //     if (number.length !== 16) {
+    //       cardError.style.display = "block";
+    //       valid = false;
+    //     } else {
+    //       cardError.style.display = "none";
+    //     }
 
-  //     if (!(cvv.value.length === 3)) {
-  //       cvvError.style.display = "block";
-  //       valid = false;
-  //     } else {
-  //       cvvError.style.display = "none";
-  //     }
+    //     if (!cardName.value || cardName.value.trim().length < 3) {
+    //       nameError.style.display = "block";
+    //       valid = false;
+    //     } else {
+    //       nameError.style.display = "none";
+    //     }
 
-  //     const currentYear = new Date().getFullYear();
-  //     const currentMonth = new Date().getMonth() + 1;
-  //     if (
-  //       !expMonth.value ||
-  //       !expYear.value ||
-  //       (parseInt(expYear.value) === currentYear &&
-  //         parseInt(expMonth.value) < currentMonth)
-  //     ) {
-  //       expError.style.display = "block";
-  //       valid = false;
-  //     } else {
-  //       expError.style.display = "none";
-  //     }
+    //     if (!(cvv.value.length === 3)) {
+    //       cvvError.style.display = "block";
+    //       valid = false;
+    //     } else {
+    //       cvvError.style.display = "none";
+    //     }
 
-  //     if (valid) {
-  //       /*alert("Form submitted successfully!");*/
-  //     }
-  //   }
-  // );
+    //     const currentYear = new Date().getFullYear();
+    //     const currentMonth = new Date().getMonth() + 1;
+    //     if (
+    //       !expMonth.value ||
+    //       !expYear.value ||
+    //       (parseInt(expYear.value) === currentYear &&
+    //         parseInt(expMonth.value) < currentMonth)
+    //     ) {
+    //       expError.style.display = "block";
+    //       valid = false;
+    //     } else {
+    //       expError.style.display = "none";
+    //     }
+
+    //     if (valid) {
+    //       /*alert("Form submitted successfully!");*/
+    //     }
+    //   }
+    // );
   </script>
   <script src="https://unpkg.com/card-validator@8.1.0/dist/card-validator.min.js"></script>
   <script>
-  document.getElementById('cardForm').addEventListener('submit', function(e) {
-  var cardNumber = document.getElementById('cardNumber').value;
-  var validation = window.cardValidator.number(cardNumber);
-  if (!validation.isValid) {
-    e.preventDefault();
-    alert('Invalid credit card number!');
-  }
-});
-</script>
+    document
+      .getElementById("cardForm")
+      .addEventListener("submit", function (e) {
+        var cardNumber = document.getElementById("cardNumber").value;
+        var validation = window.cardValidator.number(cardNumber);
+        if (!validation.isValid) {
+          e.preventDefault();
+          alert("Invalid credit card number!");
+        }
+      });
+  </script>
 </html>
